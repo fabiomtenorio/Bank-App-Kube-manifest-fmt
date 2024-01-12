@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bankapp
+spec:
+  selector:
+    matchLabels:
+      app: bank-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: bank-app
+    spec:
+      containers:
+      - name: bankapp
+        image: savytech/bank-app:build-42
+        ports:
+        - containerPort: 80
